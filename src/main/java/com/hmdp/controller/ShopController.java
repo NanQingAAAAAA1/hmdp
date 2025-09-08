@@ -7,6 +7,7 @@ import com.hmdp.dto.Result;
 import com.hmdp.entity.Shop;
 import com.hmdp.service.IShopService;
 import com.hmdp.utils.SystemConstants;
+import com.hmdp.common.annotation.HotProduct;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.annotation.Resource;
@@ -32,6 +33,7 @@ public class ShopController {
      * @return 鍟嗛摵璇︽儏鏁版嵁
      */
     @GetMapping("/{id}")
+    @HotProduct(expire = 3600)
     public Result queryShopById(@PathVariable("id") Long id) throws InterruptedException {
         return shopService.queryById(id);
     }
