@@ -27,7 +27,7 @@ public class ShopController {
     public IShopService shopService;
 
     /**
-     * 鏍规嵁id鏌ヨ鍟嗛摵淇℃伅
+     * 鏍规嵇id鏌ヨ鍟嗛摵淇℃伅
      * @param id 鍟嗛摵id
      * @return 鍟嗛摵璇︽儏鏁版嵁
      */
@@ -61,22 +61,21 @@ public class ShopController {
     }
 
     /**
-     * 鏍规嵁鍟嗛摵绫诲瀷鍒嗛〉鏌ヨ鍟嗛摵淇℃伅
-     * @param typeId 鍟嗛摵绫诲瀷
-     * @param current 椤电爜
-     * @return 鍟嗛摵鍒楄〃
+     * 根据店铺类型分页查询店铺信息
+     * @param typeId 店铺类型
+     * @param current 页码
+     * @param x 经度
+     * @param y 纬度
+     * @return 店铺列表
      */
     @GetMapping("/of/type")
     public Result queryShopByType(
             @RequestParam("typeId") Integer typeId,
-            @RequestParam(value = "current", defaultValue = "1") Integer current
+            @RequestParam(value = "current", defaultValue = "1") Integer current,
+            @RequestParam(value = "x", required = false) Double x,
+            @RequestParam(value = "y", required = false) Double y
     ) {
-        // 鏍规嵁绫诲瀷鍒嗛〉鏌ヨ
-        Page<Shop> page = shopService.query()
-                .eq("type_id", typeId)
-                .page(new Page<>(current, SystemConstants.DEFAULT_PAGE_SIZE));
-        // 杩斿洖鏁版嵁
-        return Result.ok(page.getRecords());
+        return shopService.queryShopByType(typeId, current, x, y);
     }
 
     /**

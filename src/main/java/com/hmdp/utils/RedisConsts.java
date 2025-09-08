@@ -9,4 +9,5 @@ public class RedisConsts {
     public static final String LOGIN_TOKEN = "login:token:";
     public static final String LOGIN_USER_KEY = "login:token:"; // 验证码业务前缀
     public static final Long LOGIN_USER_TTL = 30L; // 有效期常量
+    public static final String SECKILL_STOCK_KEY = "seckill:stock:";
 }

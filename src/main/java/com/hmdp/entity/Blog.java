@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author 铏庡摜
@@ -90,6 +90,4 @@ public class Blog implements Serializable {
      * 鏇存柊鏃堕棿
      */
     private LocalDateTime updateTime;
-
-
 }
